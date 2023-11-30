@@ -1,4 +1,4 @@
-package com.kguard.tobecomebetter
+package com.kguard.tobecomebetter.forcodingtest
 
 fun main() {
     //solution1(arrayOf("joy", "brad", "alessandro", "conan", "david"), arrayOf("alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"))

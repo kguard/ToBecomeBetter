@@ -1,8 +1,9 @@
-package com.kguard.tobecomebetter
+package com.kguard.tobecomebetter.forcodingtest
 
 fun main() {
 
-    println(solution1(
+    println(
+        solution1(
         today =  "2020.05.15",
         terms = arrayOf("A 1"),
         privacies = arrayOf("2001.01.10 A", "2001.01.10 A")

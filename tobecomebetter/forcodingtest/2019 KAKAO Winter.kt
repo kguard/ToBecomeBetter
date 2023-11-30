@@ -1,4 +1,4 @@
-package com.kguard.tobecomebetter
+package com.kguard.tobecomebetter.forcodingtest
 
 fun main() {
 //    println(
@@ -16,10 +16,12 @@ fun main() {
 //        arrayOf("fr*d*", "*rodo", "******", "******")
 //    )
 
-    println(errorUser(
+    println(
+        errorUser(
         arrayOf("frodo", "fradi", "crodo", "abc123", "frodoc"),
         arrayOf("*r*d*", "*rodo", "******")
-    ))
+    )
+    )
 }
 
 fun crane(board: Array<IntArray>, moves: IntArray): Int {
