@@ -6,7 +6,7 @@ package com.kguard.tobecomebetter.baekjoon
 //    var high = arr.size - 1
 //    var mid: Int
 //    while (low <= high) {
-//        mid = (low + high) / 2
+//        mid = (low + high) / 2 //중간 값
 //        if (search == arr[mid])
 //            return 1  // 리스트 안에 숫자가 있으면 1
 //        else if (search < arr[mid])
