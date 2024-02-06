@@ -1,5 +1,5 @@
 package com.kguard.tobecomebetter.baekjoon
-
+//실버 4
 fun main() {
     val count = readln().toInt()
     var result = 0

@@ -2,7 +2,7 @@ package com.kguard.tobecomebetter.baekjoon
 
 import java.math.BigInteger
 
-//실버 4
+//실버 5
 // 겹치면 안되기 때문에 순서에 맞는거 하나만 고르면 된다. 따라서 mCn 으로 계산. (n<m)
 fun main() {
     val rep = readln().toInt()
