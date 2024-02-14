@@ -1,5 +1,5 @@
 package com.kguard.tobecomebetter.baekjoon
-
+//브론즈 2
 fun main() {
     print(fibonacci(readln().toInt()))
 }

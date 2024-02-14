@@ -1,5 +1,5 @@
 package com.kguard.tobecomebetter.baekjoon
-
+// 브론즈 5
 fun main() {
     print(factorial(readln().toInt()))
 }
