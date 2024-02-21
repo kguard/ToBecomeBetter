@@ -7,8 +7,8 @@ import java.io.OutputStreamWriter
 
 //골드 3
 // 문제를 좌표로 푸는 것이 맞음
-val br = BufferedReader(InputStreamReader(System.`in`))
-val bw = BufferedWriter(OutputStreamWriter(System.out))
+private val br = BufferedReader(InputStreamReader(System.`in`))
+private val bw = BufferedWriter(OutputStreamWriter(System.out))
 fun main() {
 
     val n = br.readLine().toInt()
