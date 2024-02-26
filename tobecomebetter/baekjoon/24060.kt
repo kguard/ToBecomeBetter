@@ -2,9 +2,9 @@ package com.kguard.tobecomebetter.baekjoon
 
 //실버 3
 
-var count = 0
-var c: Int = 0
-var result = -1
+private var count = 0
+private var c: Int = 0
+private var result = -1
 lateinit var tmp: MutableList<Int>
 fun main() {
     val n = readln().split(" ").map { it.toInt() }
