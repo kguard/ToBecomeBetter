@@ -7,7 +7,6 @@ import java.io.OutputStreamWriter
 
 //실버 3
 // boolean 부분 제거 하여 모든 값 출력
-
 // 1 -> 2, 3, 4
 // 2 -> 1, 3, 4
 // 3 -> 1, 2, 4,
