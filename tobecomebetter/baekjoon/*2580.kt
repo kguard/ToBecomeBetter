@@ -14,7 +14,7 @@ private fun dfs(x: Int, y: Int) {
         dfs(x + 1, 0)
         return
     }
-    if (x == 9) {
+    if (x == 9) { // 모든 곳을 다 돌았을 때 종료
         for (i in 0 until 9) {
             for (j in 0 until 9) {
                 print("${sudoku[i][j]} ")
@@ -30,10 +30,10 @@ private fun dfs(x: Int, y: Int) {
                 dfs(x, y + 1)
             }
         }
-        sudoku[x][y] = 0 // 
+        sudoku[x][y] = 0 // 아니면 원상 복구
         return
     }
-    dfs(x, y + 1)
+    dfs(x, y + 1) // 다음 으로 이동
 }
 
 private fun check(x: Int, y: Int, value: Int): Boolean { // 현재 x와 y축을 받고, 1~9까지 중의 값을 받는것
