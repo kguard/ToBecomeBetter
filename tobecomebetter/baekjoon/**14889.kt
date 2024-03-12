@@ -2,6 +2,7 @@ package com.kguard.tobecomebetter.baekjoon
 
 import kotlin.math.*
 import kotlin.system.exitProcess
+
 //실버 1
 private var startLink = mutableListOf<MutableList<Int>>()
 private var visited = mutableListOf<Boolean>()
@@ -18,7 +19,7 @@ fun main() {
     print(result)
 }
 
-private fun dfs(index: Int, depth: Int) { // depth는 카운트 수, index는 다음 값
+private fun dfs(index: Int, depth: Int) { // depth는 카운트(팀원) 수, index는 다음 값
     if (depth == n / 2) {
         diff();
         return;
