@@ -1,4 +1,5 @@
 package com.kguard.tobecomebetter.baekjoon
+// 실버 3
 private val dp = MutableList<Long>(101){0}
 fun main(){
     dp[0] = 0
