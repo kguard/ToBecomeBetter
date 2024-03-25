@@ -12,7 +12,7 @@ package com.kguard.tobecomebetter.baekjoon
 //}
 
 
-// dp[자릿 수][첫번째 값] 을 적용 시켜서 2차원 배열
+// dp[자릿 수][첫번째 수] 을 적용 시켜서 2차원 배열
 fun main() {
     val n = readln().toInt()
     val dp = MutableList<MutableList<Long>>(n + 1) { MutableList(10) { 0 } }
