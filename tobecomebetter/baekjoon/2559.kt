@@ -1,7 +1,10 @@
 package com.kguard.tobecomebetter.baekjoon
 
 import kotlin.math.max
-
+// 실버 3
+// 누적 합을 이용해서 구하는 문제
+// 누적합에서 빼면됨
+// -100 이 100000 개 일수 있기 때문에 최소값 -10000000 으로 설정
 fun main() {
     val n = readln().split(" ").map { it.toInt() }
     val list = readln().split(" ").map { it.toInt() }
