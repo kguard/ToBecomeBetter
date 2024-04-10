@@ -8,6 +8,8 @@ import java.io.OutputStreamWriter
 // 실버 1
 // 2차원 배열에 대한 누적 합으로 구해야됨
 // [x][y]= [x-1][y]+[x][y-1]-[x-1][y-1]
+// (x1,y1) 에서 (x2,y2) 까지의 크기는 [x2][y2] 에서 해당 되지 않는 [x2][y1-1] 와 [x2][y1-1]를 빼주고 [x1-1][y1-1]은 두번 빼지니 한 번 더함
+// [x2][y2] - [x2][y1-1] - [x2][y1-1] + [x1-1][y1-1]
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val bw = BufferedWriter(OutputStreamWriter(System.out))
