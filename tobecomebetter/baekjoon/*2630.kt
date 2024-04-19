@@ -31,8 +31,8 @@ fun checkColor(size: Int, startX: Int, startY: Int) {
         for (j in startX until startX + size) {
             if (paper[j][i] != color) {
                 checkColor(size / 2, startX, startY) // 왼쪽 위
-                checkColor(size / 2, startX + size / 2, startY) // 오른쪽 위
-                checkColor(size / 2, startX, startY + size / 2) // 왼쪽 아래
+                checkColor(size / 2, startX + size / 2, startY) // 왼쪽 아래
+                checkColor(size / 2, startX, startY + size / 2) // 오른쪽 위
                 checkColor(size / 2, startX + size / 2, startY + size / 2) // 오른쩍 이레
                 return
             }
