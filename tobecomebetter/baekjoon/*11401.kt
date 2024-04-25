@@ -10,8 +10,8 @@ package com.kguard.tobecomebetter.baekjoon
 fun main() {
     val (n, k) = readln().split(" ").map { it.toLong() }
     val p: Long = 1000000007
-    val m = factorial(k, p) * factorial(n - k, p) % p
-    println((factorial(n, p) * mul(m, p - 2, p)) % p)
+    val m = factorialP(k, p) * factorialP(n - k, p) % p 
+    println((factorialP(n, p) * mul(m, p - 2, p)) % p) //
 }
 
 // 1629 번에서 가져온 곱셉 mod 함수 a: 몫, b : 지수, c : 모듈러 연산
@@ -22,7 +22,7 @@ private fun mul(a: Long, b: Long, c: Long): Long {
     else k * k % c * a % c // 지수가 홀수일 경우에는 나눈 두 수를 곱한 다음 나머지 연산하고, 하나 더 계산 -> 모듈러 연산
 }
 
-// 11050에서 가져온 팩토리얼 함수 -> 재귀 함수
-private fun factorial(n: Long, mod: Long): Long {
-    return if (n <= 1) 1L else n * factorial(n - 1, mod) % mod
+// 11050에서 가져온 팩토리얼 함수 -> 재귀 함수 // 전체 모듈화 계산
+private fun factorialP(n: Long, mod: Long): Long {
+    return if (n <= 1) 1L else n * factorialP(n - 1, mod) % mod
 }
