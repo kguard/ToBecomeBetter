@@ -1,12 +1,13 @@
 package com.kguard.tobecomebetter.baekjoon
+
 // 브론즈 5
 fun main() {
-    print(factorialP(readln().toInt()))
+    print(factorial(readln().toInt()))
 }
 
-private fun factorialP(n: Int): Long {
+private fun factorial(n: Int): Long {
     return if (n <= 1)
         1
     else
-        n * factorialP(n - 1)
+        n * factorial(n - 1)
 }
