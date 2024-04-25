@@ -10,7 +10,7 @@ package com.kguard.tobecomebetter.baekjoon
 fun main() {
     val (n, k) = readln().split(" ").map { it.toLong() }
     val p: Long = 1000000007
-    val m = factorialP(k, p) * factorialP(n - k, p) % p 
+    val m = factorialP(k, p) * factorialP(n - k, p) % p  // 분모
     println((factorialP(n, p) * mul(m, p - 2, p)) % p) //
 }
 
