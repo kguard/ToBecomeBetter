@@ -39,12 +39,12 @@ fun main() {
     }*/
 }
 
-// 행렬 제곱을 구하는 함수
+// 행렬 제곱을 구하는 함수 -> 행렬 곱셈을 이용해서 함수 작성
 private fun ms(
     a: MutableList<MutableList<Long>>,
     b: MutableList<MutableList<Long>>
 ): MutableList<MutableList<Long>> {
-    val n = a.size
+    val n = a.size // a 와 b는 모두 정사각형 모양의 행렬
     val c = MutableList(n) { MutableList(n) { 0L } }
     for (i in 0 until n) {
         for (j in 0 until n) {
@@ -60,6 +60,6 @@ private fun ms(
 private fun mul(a: MutableList<MutableList<Long>>, b: Long): MutableList<MutableList<Long>> {
     if (b == 1L) return a // 지수가 1일 때는 단순히 나머지 연산
     val k = mul(a, b / 2) // 지수를 2로 나누어서 두개로 계산
-    return if (b % 2 == 0L) ms(k, k) //
-    else ms(ms(k, k), a) //
+    return if (b % 2 == 0L) ms(k, k)
+    else ms(ms(k, k), a)
 }
