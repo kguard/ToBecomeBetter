@@ -7,8 +7,8 @@ import java.io.OutputStreamWriter
 // 실버 4
 // 이분 탐색, 정렬, 자료 구조
 // 정렬된 상태에서만 가능
-// upperBound : 찾으려는 값 보다 큰 값이 처음 나오는 위치 반환
-// lowerBound : 찾으려는 값 보다 크거나 같은 값이 처음 나오는 위치 반환
+// upperBound : 찾으려는 값 보다 (초과한 값) 큰 값이 처음 나오는 위치 반환
+// lowerBound : 찾으려는 값 보다 (이상의 값) 크거나 같은 값이 처음 나오는 위치 반환
 fun lowerBound(arr: List<Int>, search: Int): Int {
     var left = 0 // 초기 값
     var right = arr.size // 마지막 값
