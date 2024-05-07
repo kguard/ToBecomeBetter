@@ -11,7 +11,8 @@ fun main() {
         val n = readln().split(" ").map { it.toLong() }.toMutableList()
         if (n[0] == 0L) return
         val size = n.removeFirst().toInt()
-        println(divideSol(n,0, size-1))
+//        println(divideSol(n, 0, size - 1))
+        println(stackSol(n))
     }
 }
 
@@ -26,10 +27,16 @@ private fun divideSol(list: List<Long>, left: Int, right: Int): Long {
     max = max(max, divideSolMid(left, right, mid, list))  // 각 부분의 최대 값과 범위 내에서 이어진 부분끼리의 최대값 구하기
     return max
 }
+
 // 높이를 중간부터 시작하여서 왼족과 오른쪽을 비교해서 더 큰 높이로 이동한다음, 이동한 높이와 기존의 높이중 더 작은 높이를 선택
 // 왼쪽이나 오른쪽 끝으로 가게되면 최대 넓이 구하기
 // 남은 한쪽의 끝까지 가서 전체 너비를 이용해서 구한 넓이와 비교
-private fun divideSolMid(left: Int, right: Int, mid: Int, list: List<Long>): Long { // 중간 지점에서 시작하여 최대 넓이 구하기
+private fun divideSolMid(
+    left: Int,
+    right: Int,
+    mid: Int,
+    list: List<Long>
+): Long { // 중간 지점에서 시작하여 최대 넓이 구하기
     var height: Long = list[mid] // 초기 높이는 중간값
     var max = height // 초반에 최대 넓이
     var toLeft = mid // 왼쪽으로 이동할 변수
@@ -56,4 +63,27 @@ private fun divideSolMid(left: Int, right: Int, mid: Int, list: List<Long>): Lon
     }
     return max
 }
-
+// 2. 스택을 이용해서 푸는 방법
+// 스택에 인덱스와 값을 저장
+// 스택의 마지막 값과 현재 값을 비교해서 현재 값이 더 작으면 스택에 있는 값들을 하나 씩 빼서 넓이 계산
+// 넓이를 계산 할 때 마지막 값을 하나 빼네서, 현재 인덱스 - 빼네고 남은 스택의 마지막 값의 인덱스 - 1 로 가로 길이를 구하고
+// 높이는 빼넨 마지막 값의 값을 사용해서 넓이를 구함
+private fun stackSol(list: List<Long>): Long {
+    val stack = mutableListOf<Pair<Int, Long>>()
+    var max: Long = 0
+    for (i in list.indices) {
+        while (stack.isNotEmpty() && stack.last().second > list[i]) { // 스택이 다 비어져있지 않고, 현재 값보다 스택 안에 있는 값들이 클 때 계속 반복
+            val last = stack.removeLast() // 스택의 마지막 값을 pop
+            val width = if (stack.isEmpty()) i else i - 1 - stack.last().first // pop 하고나서 스택이 비어 있으면 가로 길이는 현재 값의 인덱스, 비어 있지 않으면 현재 인덱스 - 1 - 스택의 마지막 값의 인덱스
+            max = max(max, width * last.second) // 넓이 비교
+        }
+        stack.add(Pair(i, list[i])) // 계속 스택에 추가
+    }
+    val size = list.size // list의 마지막 까지 갔는데 스택이 남아 있을 경우 -> list의 마지막 값
+    while (stack.isNotEmpty()) {
+        val last = stack.removeLast() // 스택의 마지막 값을 pop
+        val width = if (stack.isEmpty()) size else size - 1 - stack.last().first // pop 하고나서 스택이 비어 있으면 가로 길이는 list의 길이, 비어 있지 않으면 list의 길이 - 1 - 스택의 마지막 값의 인덱스
+        max = max(max, width * last.second) // 넓이 비교
+    }
+    return max //최대값 리턴
+}
