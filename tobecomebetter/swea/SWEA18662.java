@@ -10,7 +10,7 @@ public class SWEA18662 {
             int a = sc.nextInt();
             int b = sc.nextInt();
             int c = sc.nextInt();
-            System.out.println("#" + i + " "+Math.abs(((c - b) - (b - a)) / 2.0));
+            System.out.println("#" + i + " " + Math.abs(((c - b) - (b - a)) / 2.0));
         }
     }
 }
