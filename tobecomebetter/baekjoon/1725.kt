@@ -2,21 +2,25 @@ package com.kguard.tobecomebetter.baekjoon
 
 import kotlin.math.*
 
-// 플레티넘 5 히스토그램에서 가장 큰 직사각형
-// 분할 정복, 세그먼트 트리, 자료구조, 스택
+// 플레티넘 5 히스토그램
+// 자료구조, 세그먼트 트리, 분할 정복, 스택
+// 6549와 완전히 똑같은 문제
 // 1. 문제를 분할 정복으로 푸는 방법
 // 2. 스택을 이용해서 푸는 방법
 fun main() {
-    while (true) {
-        val n = readln().split(" ").map { it.toLong() }.toMutableList()
-        if (n[0] == 0L) return
-        val size = n.removeFirst().toInt()
-//        println(divideSol(n, 0, size - 1))
-        println(stackSol(n))
+    val n = readln().toInt()
+    val list = mutableListOf<Long>()
+    repeat(n) {
+        list.add(readln().toLong())
     }
+    println(divideSol(list, 0, n-1))
+    println(stackSol(list))
 }
 
 // 1. 분할 정복을 이용해서 문제 해결
+// 처음에 리스트 전체와 제일 왼쪽 값, 제일 오른쪽 값을 넣음
+// 중간 값을 나눠서 중간 값 기준으로 왼쪽에서의 최대값, 오른쪽에서의 최대 값을 비교
+// 둘 중 더 큰 값과 높이를 중간부터 시작하여 전체 넓이를 구하여 비교
 private fun divideSol(list: List<Long>, left: Int, right: Int): Long {
     if (right == left)
         return list[right] // 왼쪽과 오른쪽이 같으면 넓이는 1이니 높이만 리턴
@@ -63,6 +67,7 @@ private fun divideSolMid(
     }
     return max
 }
+
 // 2. 스택을 이용해서 푸는 방법
 // 스택에 인덱스와 값을 저장
 // 스택의 마지막 값과 현재 값을 비교해서 현재 값이 더 작으면 스택에 있는 값들을 하나 씩 빼서 넓이 계산
