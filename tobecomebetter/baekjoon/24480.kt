@@ -1,11 +1,8 @@
 package com.kguard.tobecomebetter.baekjoon
 
-// 실버 2 알고리즘 수업 - 깊이 우선 탐색 1
+// 실버 2 알고리즘 수업 - 깊이 우선 탐색 2
 // 그래프 이론, 그래프 탐색, 정렬, 깊이 우선 탐색
-// 기본적인 dfs 문제
-// 무방향 그래프를 1 - [2,3,4], 2- [1,5] 이런식으로 2차원 배열로 구현
-// 방문했는지 확인하는 visited 리스트 생성
-// 방문했을 때 순서를 저장하기 위한 리스트 생성
+// 24479번 코드 동일
 fun main(){
     val (n,m,r) = readln().split(" ").map { it.toInt() }
     val visited = MutableList(n+1){false} // 방문했는지 확인
@@ -17,7 +14,7 @@ fun main(){
         graph[n1].add(v1)
         graph[v1].add(n1)
     }
-    graph.forEach { it.sort() } // 각 정점마다 연결되는 정점을 오름차순 정렬
+    graph.forEach { it.sortDescending() } // 각 정점마다 연결되는 정점을 내림차순 정렬
     fun dfs(r:Int){
         visited[r] = true // 입력된 정점 방문
         cnt[r] = t // 입력된 정점에 방문한 순서 저장
