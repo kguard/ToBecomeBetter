@@ -12,21 +12,21 @@ fun main(){
         graph[n1].add(v1)
         graph[v1].add(n1)
     }
-    graph.forEach { it.sortDescending() } // 각 정점마다 연결되는 정점을 오름차순 정렬
+    graph.forEach { it.sortDescending() } // 각 정점마다 연결되는 정점을 내림차순 정렬
     val visited = MutableList(n+1){false} // 방문했는지 확인
     val cnt = MutableList(n+1){0} // 정점에 방문한 순서
     var t = 1 // 1번째 순서
     fun bfs(r: Int){
-        visited[r] = true
-        cnt[r] = t++
-        queue.add(r)
-        while(queue.isNotEmpty()){
-            val u = queue.removeFirst()
-            for(i in graph[u])
-                if(!visited[i]){
-                    visited[i] = true
-                    queue.add(i)
-                    cnt[i] = t++
+        visited[r] = true // 정점 방문
+        cnt[r] = t++ // 순서 추가
+        queue.add(r) // 큐에 정점을 추가
+        while(queue.isNotEmpty()){ // 큐가 비어 있지 않을 때 까지 반복
+            val u = queue.removeFirst() // 맨 앞에 있는 정점을 제거하며 탐색
+            for(i in graph[u]) // 맨앞 정점과 간선으로 연결된 모든 정점 탐색 -> 너비로 탐색
+                if(!visited[i]){ // 방문하지 않았으면
+                    visited[i] = true // 방문으로 바꾸고
+                    queue.add(i) // 큐에 정점 추가
+                    cnt[i] = t++ // 순서 추가
                 }
         }
     }
