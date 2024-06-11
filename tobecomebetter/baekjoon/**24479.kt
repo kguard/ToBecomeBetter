@@ -6,6 +6,7 @@ package com.kguard.tobecomebetter.baekjoon
 // 무방향 그래프를 1 - [2,3,4], 2- [1,5] 이런식으로 2차원 배열로 구현
 // 방문했는지 확인하는 visited 리스트 생성
 // 방문했을 때 순서를 저장하기 위한 리스트 생성
+// 연결된 간선이 없으면 탐색 x
 fun main(){
     val (n,m,r) = readln().split(" ").map { it.toInt() }
     val visited = MutableList(n+1){false} // 방문했는지 확인
