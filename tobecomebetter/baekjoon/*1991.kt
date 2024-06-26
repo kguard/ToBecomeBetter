@@ -2,18 +2,18 @@ package com.kguard.tobecomebetter.baekjoon
 
 //실버 1
 
-private data class Node(
+private data class Node1991(
     val root: String,
-    var left: Node? = null,
-    var right: Node? = null
+    var left: Node1991? = null,
+    var right: Node1991? = null
 )
 
 fun main() {
     val size = readln().toInt()
-    val tree = mutableListOf<Node>()
+    val tree = mutableListOf<Node1991>()
     repeat(size)
     {
-        tree.add(Node((it + 65).toChar().toString())) // 알파벳 순으로 노드 생성
+        tree.add(Node1991((it + 65).toChar().toString())) // 알파벳 순으로 노드 생성
     }
     repeat(size)
     {
@@ -30,19 +30,19 @@ fun main() {
     postorder(tree[0])
 }
 
-private fun preorder(node: Node) {
+private fun preorder(node: Node1991) {
     print(node.root) // 중간 값 출력
     if (node.left != null) preorder(node.left!!) // 왼쪽 자식
     if (node.right != null) preorder(node.right!!) // 오른쪽 자식
 }
 
-private fun inorder(node: Node) {
+private fun inorder(node: Node1991) {
     if (node.left != null) inorder(node.left!!) // 왼쪽 자식
     print(node.root) // 중간 값 출력
     if (node.right != null) inorder(node.right!!) // 오른쪽 자식
 }
 
-private fun postorder(node: Node) {
+private fun postorder(node: Node1991) {
     if (node.left != null) postorder(node.left!!) // 왼쪽 자식
     if (node.right != null) postorder(node.right!!) // 오른쪽 자식
     print(node.root) // 중간 값 출력
