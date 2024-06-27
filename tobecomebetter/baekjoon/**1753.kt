@@ -26,9 +26,9 @@ fun main(){
             val poll = queue.poll()
             if(poll.weight > visited[poll.index]) continue // 새로 들어온 가중치가 이미 원래 있던 가중치보다 크면 for문을 돌 필요 없음 -> 이미 작은게 정해져있기 때문에 바꿀 이유가 없음
             for(i in graph[poll.index]) {
-                if(visited[i.index] > visited[poll.index] + i.weight) {
-                    visited[i.index] = visited[poll.index] + i.weight
-                    queue.add(Node1753(i.index,visited[i.index]))
+                if(visited[i.index] > visited[poll.index] + i.weight) {  // 새로 찾은 거리가 원래 거리보다 작은 경우
+                    visited[i.index] = visited[poll.index] + i.weight // 최소거리를 새로 찾은 거리로 변경
+                    queue.add(Node1753(i.index,visited[i.index]))  // 이동할 정점과 정점까지의 거리 큐에 추가
                 }
             }
         }
