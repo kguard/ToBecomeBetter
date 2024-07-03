@@ -3,7 +3,8 @@ package com.kguard.tobecomebetter.baekjoon
 import kotlin.math.*
 import kotlin.system.exitProcess
 
-//실버 1
+// 실버 1 스타트와 링크
+// 브루트포스 알고리즘, 백트래킹
 private var startLink = mutableListOf<MutableList<Int>>()
 private var visited = mutableListOf<Boolean>()
 private var n = 0
