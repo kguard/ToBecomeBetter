@@ -22,7 +22,7 @@ private fun isPrime(n: Int): Boolean {
     return true
 }
 //에라토스테네스의 체
-fun sieveOfEratosthenes(end: Int): List<Boolean> {
+private fun sieveOfEratosthenes(end: Int): List<Boolean> {
     val list = BooleanArray(end + 1) { true }
     list[0] = false
     list[1] = false
