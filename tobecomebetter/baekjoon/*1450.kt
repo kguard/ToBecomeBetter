@@ -10,6 +10,7 @@ fun main() {
     val left = mutableListOf<Int>()
     val right = mutableListOf<Int>()
     var count = 0
+    // 물건을 넣고 안 넣고의 모든 경우의 수
     fun dfs(start: Int, end: Int, list1: MutableList<Int>, sum: Int) { // 모든 부분합을 구하는 함수 -> 부분 합의 경우의 수
         if(sum > c) return
         if (start > end) { // 시작 인덱스가 마지막 인덱스 보다 크면
