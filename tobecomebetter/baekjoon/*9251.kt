@@ -6,6 +6,7 @@ import kotlin.math.max
 
 // 골드 5
 // lcs : Longest Common Substring와 Longest Common Subsequence
+// 다이나믹 프로그래밍(dp), 문자열
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val a = br.readLine()
