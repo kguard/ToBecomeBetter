@@ -1,23 +1,20 @@
 package com.kguard.tobecomebetter.baekjoon
 
-// 골드 2 트리의 지름
+// 골드 4 트리의 지름
 // 그래프 이론, 그래프 탐색, 트리, 깊이 우선 탐색(dfs)
-// bfs, dfs 둘다 가능
-// 트리의 지름 -> 노드 사이의 거리가 제일 긴 노드 간의 거리
+// bfs, dfs 둘 다 해결 가능
+// 1167번과 정확히 같은 방식으로 풀기
 // 트리의 특성을 생각해 보면 모든 정점은 사이클이 없이 연결이 되어 있고, 한 정점에서 다른 정점으로 가는 경로는 유일하다. 그래서 가장 멀리있는 두 정점의 경로는 항상 유일하다.
 // 가장 긴 정점의 경로는 결국 어느 정점에서의 가장 먼 거리에 있는 정점의 경로와 겹칠 수밖에 없는 것이다.
-// 어느 점에서 시작 하던 제일 멀리 있는 점은 같음 -> 가는 루트가 한정되어 있기 때문에
 // 1. 임의의 점을 선택해 거리 구해서 가장 멀리 있는 점을 구하기
 // 2. 1번에서 구한 가장 멀리 있는 점을 기준으로 다시 거리 구해서 최대 값
 fun main() {
     val n = readln().toInt()
     val graph = MutableList(n + 1) { mutableListOf<Pair<Int, Int>>() }
-    repeat(n) {
-        val m = readln().split(" ").map { it.toInt() }.toMutableList()
-        val s = m.removeFirst()
-        m.removeLast()
-        for (i in 0 until m.size step 2)
-            graph[s].add(Pair(m[i], m[i + 1]))
+    repeat(n-1) {
+        val (a, b, c) = readln().split(" ").map { it.toInt() }
+        graph[a].add(Pair(b, c)) // 먼저 간선에서 가는 방향 추가
+        graph[b].add(Pair(a, c)) // 반대 쪽에도 가는 방향 추가
     }
     var visited = MutableList(n + 1) { -1 }
     visited[1] = 0
@@ -30,7 +27,6 @@ fun main() {
             }
         }
     }
-
     fun bfs(s: Int) {
         val queue = mutableListOf<Pair<Int, Int>>()
         queue.add(Pair(s, 0))
@@ -46,10 +42,13 @@ fun main() {
     }
 //    dfs(1, 0)
     bfs(1)
+    println(visited)
     val max = visited.indexOf(visited.max())
     visited = MutableList(n + 1) { -1 }
     visited[max] = 0
-//    dfs(max, 0)
     bfs(max)
+//    dfs(max, 0)
+    println(visited)
     println(visited.max())
+
 }
