@@ -1,6 +1,7 @@
 package com.kguard.tobecomebetter.baekjoon
 
-//실버 1
+//실버 1 트리 순회
+// 트리, 재귀
 
 private data class Node1991(
     val root: String,
