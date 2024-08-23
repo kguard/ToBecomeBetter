@@ -3,7 +3,7 @@ package com.kguard.tobecomebetter.baekjoon
 // 골드 4 최소 스패닝 트리
 // 그래프 이론, 최소 스패닝 트리
 // 가중치가 작은 순으로 정렬한 다음, 사이클이 생기지 않는 선에서 더하기
-// 사이클이 생기는 부분에서는 union-find를 사용
+// 사이클이 생기는 부분에서는 union-find를 사용 -> 크루스칼 알고리즘
 fun main(){
     val (v,e) = readln().split(" ").map { it.toInt() }
     val graph = mutableListOf<Triple<Int,Int,Int>>()
