@@ -44,7 +44,7 @@ private fun checkCross(a: Pair<Long, Long>, b: Pair<Long, Long>, c: Pair<Long, L
             println(1)
             findXY(aa, bb, cc, dd)
         } else println(0)
-    } else if (c1 <= 0 && c2 <= 0) {
+    } else if (c1 <= 0 && c2 <= 0) { // 두 선분이 일직선에 존재 하거나, 같은 점에서 시작하지 않음
         println(1)
         findXY(aa, bb, cc, dd)
     } else println(0)
