@@ -23,7 +23,7 @@ fun main() {
         var result = Int.MAX_VALUE
         for (i in 0 until n) {
             if ((visited and (1 shl i)) == 0) { // i번째의 상태를 확인하기 위함
-                result = min(result, list[now][i] + dfs(now + 1, visited or (1 shl i)))  // or를 사용해서 visited가 이미 사용 된걸로 함
+                result = min(result, list[now][i] + dfs(now + 1, visited or (1 shl i))) // i번째 추가  // or를 사용해서 visited가 이미 사용 된걸로 함
             }
         }
         dp[now][visited] = result
