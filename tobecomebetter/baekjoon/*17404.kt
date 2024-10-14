@@ -7,6 +7,7 @@ import kotlin.math.min
 // 1149 문제에서 추가문제
 // 1149번과 달리 1번과 N번도 각각 색이 겹치면 안됨
 // 처음과 마지막 색을 정해 놓은 뒤 거기서 최소값을 구하는 방식으로 문제 해결
+// 조금만 생각했으면 풀 수 있었는데 안일하게 검색을 함..... 아쉬움
 fun main() {
     val n = readln().toInt()
     val list = mutableListOf<MutableList<Int>>()
