@@ -2,7 +2,8 @@ package com.kguard.tobecomebetter.baekjoon
 
 import kotlin.math.min
 
-// 실버 1
+// 실버 1 RGB거리
+// 다이나믹 프로그래밍
 // 위에서 부터 작은 것만 찾아서 더하기
 // 각 위치에 최대값을 저장하는 list 만들기
 // 각 경우의 수를 모두 구해야됨
@@ -18,8 +19,7 @@ fun main() {
     }
     sums[0] = dp[0]
     for (i in 1 until n) {
-        sums[i][0] =
-            min(sums[i - 1][1], sums[i - 1][2]) + dp[i][0] // 그 전까지의 합들중 작은거 와 그 열,행 의 값과 더하기
+        sums[i][0] = min(sums[i - 1][1], sums[i - 1][2]) + dp[i][0] // 그 전까지의 합들중 작은거 와 그 열,행 의 값과 더하기
         sums[i][1] = min(sums[i - 1][0], sums[i - 1][2]) + dp[i][1]
         sums[i][2] = min(sums[i - 1][0], sums[i - 1][1]) + dp[i][2]
     }
