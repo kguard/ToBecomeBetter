@@ -4,6 +4,7 @@ package com.kguard.tobecomebetter.baekjoon
 // 자료 구조, 문자열, 트리, 트라이
 // 1. 트리를 만들어서 문자열을 저장
 // 2. dfs를 통하여 문자열을 출력
+// 기본적인 풀이 방법만 검색 후, 구현은 스스로 할 수 있었음
 private data class Node14725( // 노드를 데이터 클래스로 구현
     var name : String,
     var children : MutableList<Node14725>
