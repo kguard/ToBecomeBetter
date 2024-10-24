@@ -54,6 +54,6 @@ fun main() {
         for (word in wordList) { // 최소한의 입력을 모은 리스트에 추가
             searchCount.add(root.find(word))
         }
-        println(String.format("%.2f", searchCount.average())) // 평균을 소수점 둘째 자리 까지만 
+        println(String.format("%.2f", searchCount.average())) // 평균을 소수점 둘째 자리 까지만
     }
 }
