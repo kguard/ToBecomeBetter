@@ -1,7 +1,4 @@
-package com.kguard.tobecomebetter.baekjoon
-
-import kotlin.math.min
-import kotlin.math.sqrt
+package com.kguard.tobecomebetter.forcodingtest
 
 fun main(){
     // 1. union - find를 참고하여서 문제 해결 -> 재귀 함수
