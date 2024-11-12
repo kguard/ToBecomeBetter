@@ -51,19 +51,26 @@ fun main() {
             b1 = tmp
         }
 
-        for (i in k downTo 0) // 1. 더 깊이 있는 노드의 위치를 같은 위치로 끌어올리기 위한 작업
-            if (2.0.pow(i).toInt() <= depth[a1] - depth[b1]) // 길이의 차이는 계속 바뀌기 때문에 주의!!!
+//        for (i in k downTo 0) // 1. 더 깊이 있는 노드의 위치를 같은 위치로 끌어올리기 위한 작업
+//            if (2.0.pow(i).toInt() <= depth[a1] - depth[b1]) // 길이의 차이는 계속 바뀌기 때문에 주의!!!
+//                a1 = parent[i][a1]
+        for (i in k downTo 0) { // 1. ㅎ 다른 풀이
+            if (depth[a1] - depth[b1] and (1 shl i) > 0) {
                 a1 = parent[i][a1]
-
-        if (a1 == b1) return a1
-
-        for (i in k downTo 0) { // 2. 두개의 노드가 같아 질때 까지 부모노드로 이동
-            if (parent[i][a1] != parent[i][b1]) {
-                a1 = parent[i][a1]
-                b1 = parent[i][b1]
             }
         }
-        return parent[0][a1]
+//        if (a1 == b1) return a1
+
+        if (a1 != b1) {
+            for (i in k downTo 0) { // 2. 두개의 노드가 같아 질때 까지 부모노드로 이동
+                if (parent[i][a1] != parent[i][b1]) {
+                    a1 = parent[i][a1]
+                    b1 = parent[i][b1]
+                }
+            }
+            a1 = parent[0][a1]
+        }
+        return a1
     }
 
     val m = br.readLine().toInt()
