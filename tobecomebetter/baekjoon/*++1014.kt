@@ -4,6 +4,7 @@ import kotlin.math.max
 
 // 플래티넘 4 컨닝
 // 다이나믹 프로그래밍, 비트마스킹, 최대 유량, 비트필드를 이용한 다이나믹 프로그래밍
+// 비트 마스킹을 학생들이 앉아 있는 위치로 생각해서 문제를 풀면됨 ex) 5 -> 101 1부분에 학생이 앉아 있는 것을 뜻함
 // dp[열][행] -> 행은 현재 열에 학생들이 어떠한 형식으로 앉아 있는지 보여주는 부분, 행열에 따른 최대 학생 수를 뜻함
 // 이해하는데 너무 어려웠다.. 이해하는데 2일 걸림
 // 나중에 다시 확인해볼 필요가 있음
@@ -12,7 +13,7 @@ fun main() {
     repeat(c) {
         val (n, m) = readln().split(" ").map { it.toInt() }
         val board = mutableListOf<List<String>>()
-        val dp = MutableList(n) { MutableList(1 shl m) { 0} }
+        val dp = MutableList(n) { MutableList(1 shl m) { 0 } }
         repeat(n) { // 처음에 보드 채워 넣기
             val list = readln().split("").toMutableList()
             list.removeAt(0)
@@ -89,47 +90,47 @@ fun main() {
         // 블로그 2
         // 한줄에 앉을 수 있는 경우의 수만 구했기 때문에 블로그 1에서의 같은 행을 검사하는 부분은 필요 없음
         //𝑏𝑖𝑡𝑀𝑎𝑠𝑘[𝑐𝑢𝑟𝑟𝑒𝑛𝑡_𝑙𝑖𝑛𝑒_𝑛𝑢𝑚𝑏𝑒𝑟][𝑏𝑒𝑓𝑜𝑟𝑒_𝑙𝑖𝑛𝑒_𝑏𝑖𝑡𝑚𝑎𝑠𝑘]=현재 𝑙𝑖𝑛𝑒을 포함한 뒷자리에 학생들이 앉는 최대 학생수
-//        val dfsArray = MutableList(m){0}
-//        val lines = mutableListOf<String>()
-//        fun dfs(index: Int){ // 한줄에 앉을 수 있는 학생들의 경우의 수 (1이 학생이 앉아있는거, 0이 앉아있지 않은거)
-//            if(m == index){ // 끝까지 진행 했을 떄?
-//                var str = ""
-//                for(a in dfsArray)
-//                    str += a.toString()
-//                lines.add(str)
-//                return
-//            }
-//            dfsArray[index] = 0
-//            dfs(index+1)
-//            if(0 < index && dfsArray[index-1] != 0) // 인덱스가 0 보다 크고, array의 마지막이 1이면
-//                return
-//            dfsArray[index] = 1
-//            dfs(index+1)
-//        }
-//        dfs(0)
-//        println(lines)
-//        fun dp(lineNumber: Int, beforeBit: Int) : Int{
-//            if(n == lineNumber)
-//                return 0
-//            if(-1 < dp[lineNumber][beforeBit])
-//                return dp[lineNumber][beforeBit]
-//            var answer = 0
-//            for(i in lines){ // 라인에는 행에 앉을 수 있는 학생의 경우의 수만 나와있음 (않지 못하는 경우는 뺌)
-//                var bits = 0
-//                var count = 0
-//                for(j in 0 until m){
-//                    if('0'== i[j]) continue // 0인 부분은 넘어감
-//                    if("x" == board[lineNumber][j]) continue // 의자가 부서진 부분도 넘어감
-//                    if(0 < j && 0 < beforeBit and (1 shl (j-1))) continue // 오른쪽 위를 and하여 1이상이 나오면 겹치는 것. 첫번째는 beforebit가 0 이기 떄문에 무조건 0이 나올 수 밖에 없음
-//                    if(0 < beforeBit and (1 shl (j+1))) continue // 왼쪽 위를 and하여 1이상이 나오면 겹치는 것. 첫번째는 beforebit가 0 이기 떄문에 무조건 0이 나올 수 밖에 없음
-//                    count ++ // 마지막에 count 추가
-//                    bits = bits or (1 shl j) // 비트에 현재 비트 추가 (덧셈 개념)
-//                }
-//                answer = max(answer, dp(lineNumber +1, bits)+ count)
-//            }
-//            dp[lineNumber][beforeBit] = answer
-//            return  answer
-//        }
-//        println(dp(0,0))
+        val dfsArray = MutableList(m) { 0 }
+        val lines = mutableListOf<String>()
+        fun dfs(index: Int) { // 한줄에 앉을 수 있는 학생들의 경우의 수 (1이 학생이 앉아있는거, 0이 앉아있지 않은거)
+            if (m == index) { // 끝까지 진행 했을 떄?
+                var str = ""
+                for (a in dfsArray)
+                    str += a.toString()
+                lines.add(str)
+                return
+            }
+            dfsArray[index] = 0
+            dfs(index + 1)
+            if (0 < index && dfsArray[index - 1] != 0) // 인덱스가 0 보다 크고, array의 마지막이 1이면
+                return
+            dfsArray[index] = 1
+            dfs(index + 1)
+        }
+        dfs(0)
+        println(lines)
+        fun dp(lineNumber: Int, beforeBit: Int): Int {
+            if (n == lineNumber)
+                return 0
+            if (-1 < dp[lineNumber][beforeBit])
+                return dp[lineNumber][beforeBit]
+            var answer = 0
+            for (i in lines) { // 라인에는 행에 앉을 수 있는 학생의 경우의 수만 나와있음 (않지 못하는 경우는 뺌)
+                var bits = 0
+                var count = 0
+                for (j in 0 until m) {
+                    if ('0' == i[j]) continue // 0인 부분은 넘어감
+                    if ("x" == board[lineNumber][j]) continue // 의자가 부서진 부분도 넘어감
+                    if (0 < j && 0 < beforeBit and (1 shl (j - 1))) continue // 오른쪽 위를 and하여 1이상이 나오면 겹치는 것. 첫번째는 beforebit가 0 이기 떄문에 무조건 0이 나올 수 밖에 없음
+                    if (0 < beforeBit and (1 shl (j + 1))) continue // 왼쪽 위를 and하여 1이상이 나오면 겹치는 것. 첫번째는 beforebit가 0 이기 떄문에 무조건 0이 나올 수 밖에 없음
+                    count++ // 마지막에 count 추가
+                    bits = bits or (1 shl j) // 비트에 현재 비트 추가 (덧셈 개념)
+                }
+                answer = max(answer, dp(lineNumber + 1, bits) + count)
+            }
+            dp[lineNumber][beforeBit] = answer
+            return answer
+        }
+        println(dp(0, 0))
     }
 }
