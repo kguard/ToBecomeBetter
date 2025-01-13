@@ -9,7 +9,7 @@ import java.io.OutputStreamWriter
 // 정렬된 상태에서만 가능
 // upperBound : 찾으려는 값 보다 (초과한 값) 큰 값이 처음 나오는 위치 반환
 // lowerBound : 찾으려는 값 보다 (이상의 값) 크거나 같은 값이 처음 나오는 위치 반환
-fun lowerBound(arr: List<Int>, search: Int): Int {
+private fun lowerBound(arr: List<Int>, search: Int): Int {
     var left = 0 // 초기 값
     var right = arr.size // 마지막 값
     var mid: Int
@@ -24,7 +24,7 @@ fun lowerBound(arr: List<Int>, search: Int): Int {
     return right //오른쪽 값 반환
 }
 
-fun upperBound(arr: List<Int>, search: Int): Int {
+private fun upperBound(arr: List<Int>, search: Int): Int {
     var left = 0
     var right = arr.size // 중간 구하기
     var mid: Int
