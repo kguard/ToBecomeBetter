@@ -1,5 +1,6 @@
 package com.kguard.tobecomebetter.baekjoon
-
+// 브론즈 3 별 찍기 - 7
+// 구현
 fun main() {
     val count = readln().toInt()
     for (i in 1..count) {
