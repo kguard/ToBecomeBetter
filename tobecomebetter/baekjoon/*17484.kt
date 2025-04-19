@@ -7,6 +7,7 @@ import kotlin.math.min
 // 0이 7시 방향으로 내려온 거, 1이 6시 방향으로 내려온 거, 2가 5시 방향으로 내려온 거
 // [i][j][l] : i와 j는 행과 열 l은 해당 행열의 값이 어디 방향에서 왔는지 확인
 // dp를 사욯하는데 3방향에서 모두 올 수 있는 것을 저장하기 위해서 3차원 배열로 생성함
+// 어려움..
 fun main() {
     val (n, m) = readln().split(" ").map { it.toInt() }
     val graph = mutableListOf<List<Int>>()
