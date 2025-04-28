@@ -1,9 +1,7 @@
 package com.kguard.tobecomebetter.baekjoon
 
-import java.io.BufferedReader
-import java.io.BufferedWriter
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
+// 실버 3 풍선 떠뜨리기
+// 자료 구조, 덱
 import kotlin.math.absoluteValue
 
 fun main() {
