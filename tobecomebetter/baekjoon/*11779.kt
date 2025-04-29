@@ -17,7 +17,7 @@ fun main() {
     val (s, e) = readln().split(" ").map { it.toInt() }
     fun dijkstra(start: Int, end: Int): Int { // -> 1504번
         val visited = MutableList(n + 1) { 200000001 } // 간선의 최대 갯수가 200000개 이고 가중치의 최대 값이 1000이기 때문에 최소거리값중 최대값은 200000000이 될 수 있기 때문에 초기값 200000001로 설정
-        val queue = PriorityQueue<Pair<Int, Int>> { a, b -> a.second - b.second } // 두번째 값으로 비교하는 부분
+        val queue = PriorityQueue<Pair<Int, Int>> { a, b -> a.second - b.second } // 두번째 값으로 비교하는 부분 -> 가중치 끼리 비교
         queue.add(Pair(start, 0))
         visited[start] = 0
         while (queue.isNotEmpty()) {
