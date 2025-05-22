@@ -5,6 +5,8 @@ import java.util.*;
 // 범위가 작아서 4중 for문을 사용해도 되지만
 // 누적 합을 이용해서 문제 해결
 
+// 누적 합에 대한 자세한 설명
+// https://sjh9708.tistory.com/213
 public class SWEA2001 {
 
     public static void main(String[] args) {
@@ -18,7 +20,7 @@ public class SWEA2001 {
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
                     nn[i][j] = sc.nextInt();
-            
+
             // 4중 for문을 사용한 코드..
 //			int max = 0;
 //			for (int i = 0; i <= n - m; i++)
