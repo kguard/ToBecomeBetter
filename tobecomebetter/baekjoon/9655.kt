@@ -11,4 +11,4 @@ fun main(){
         println("SK")
 }
 
-//fun main() { println(if (readln().toInt() % 2 == 0) "CY" else "SK") }
+//fun main(){print(if(readln().toInt()%2==0) "CY" else "SK") }
