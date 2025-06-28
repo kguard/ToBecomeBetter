@@ -3,6 +3,7 @@ package com.kguard.tobecomebetter.baekjoon
 // 실버 3 패션왕 신해빈
 // 수학, 자료 구조, 조합론, 해시를 사용한 집합과 맵, 집합과 맵
 // 맵을 사용해서 key가 있으면 +1 해주고 없으면 0+1 로 넣어줌
+// 맵의 getOrDefault를 사용해서 문제 해결
 fun main() {
     repeat(readln().toInt()) {
         val n = readln().toInt()
