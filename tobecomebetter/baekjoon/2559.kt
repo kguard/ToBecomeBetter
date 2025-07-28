@@ -9,7 +9,7 @@ fun main() {
     val n = readln().split(" ").map { it.toInt() }
     val list = readln().split(" ").map { it.toInt() }
     var s = -10000000
-    val sum = mutableListOf<Int>()
+    val sum = mutableListOf<Int>() // sum 은 누적 i 번쨰 까지의 누적 합을 의미함
     sum.add(0)
     for (i in 0 until n[0])
         sum.add(sum[i] + list[i])
