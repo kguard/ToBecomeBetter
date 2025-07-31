@@ -1,4 +1,4 @@
-package com.kguard.tobecomebetter.swea;
+package ToBecomeBetter.tobecomebetter.swea;
 
 import java.util.*;
 
