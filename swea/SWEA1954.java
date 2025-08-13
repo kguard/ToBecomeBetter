@@ -1,64 +1,63 @@
 package com.kguard.tobecomebetter.swea;
 
-import java.util.*;
-// 1954. 달팽이 숫자 D2 *
-// DFS와 BFS로 푸는 문제 (원래 알고 있는 방식과 살짝 다름)
+import java.util.Scanner;
+
 public class SWEA1954 {
 
-    static int[] moveHeight = { 0, 1, 0, -1 };
-    static int[] moveWidth = { 1, 0, -1, 0 };
+	static int[] moveHeight = { 0, 1, 0, -1 };
+	static int[] moveWidth = { 1, 0, -1, 0 };
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        for (int i = 1; i <= t; i++) {
-            int n = sc.nextInt();
-            a = n;
-            int[][] snail = bfs(n);
-            s = new int[n][n];
-            System.out.println("#" + i);
-            dfs(0,0,0,1);
-            for (int[] k : s) {
-                for (int c : k)
-                    System.out.print(c + " ");
-                System.out.println();
-            }
-        }
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for (int i = 1; i <= t; i++) {
+			int n = sc.nextInt();
+			a = n;
+			int[][] snail = bfs(n);
+			s = new int[n][n];
+			System.out.println("#" + i);
+			dfs(0, 0, 0, 1);
+			for (int[] k : s) {
+				for (int c : k)
+					System.out.print(c + " ");
+				System.out.println();
+			}
+		}
 
-    }
+	}
 
-    static int[][] bfs(int n) {
-        int[][] snail = new int[n][n];
-        int dir = 0;
-        int y = 0;
-        int x = 0;
-        for (int i = 1; i <= n * n; i++) {
-            snail[y][x] = i;
-            int ny = y + moveHeight[dir];
-            int nx = x + moveWidth[dir];
-            if (nx < 0 || nx >= n || ny < 0 || ny >= n || snail[ny][nx] != 0)
-                dir = (dir + 1) % 4;
-            y += moveHeight[dir];
-            x += moveWidth[dir];
-        }
-        return snail;
-    }
+	static int[][] bfs(int n) {
+		int[][] snail = new int[n][n];
+		int dir = 0;
+		int y = 0;
+		int x = 0;
+		for (int i = 1; i <= n * n; i++) {
+			snail[y][x] = i;
+			int ny = y + moveHeight[dir];
+			int nx = x + moveWidth[dir];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= n || snail[ny][nx] != 0)
+				dir = (dir + 1) % 4;
+			y += moveHeight[dir];
+			x += moveWidth[dir];
+		}
+		return snail;
+	}
 
-    static int[][] s;
-    static int a;
+	static int[][] s;
+	static int a;
 
-    static void dfs(int y, int x, int dir, int count) {
-        s[y][x] = count;
-        if (count == a * a)
-            return;
-        int ny = y + moveHeight[dir];
-        int nx = x + moveWidth[dir];
-        if (nx < 0 || nx >= a || ny < 0 || ny >= a || s[ny][nx] != 0) {
-            dir = (dir + 1) % 4;
-            dfs(y, x, dir, count);
-        } else
-            dfs(ny, nx, dir, count+1);
-    }
+	static void dfs(int y, int x, int dir, int count) {
+		s[y][x] = count;
+		if (count == a * a)
+			return;
+		int ny = y + moveHeight[dir];
+		int nx = x + moveWidth[dir];
+		if (nx < 0 || nx >= a || ny < 0 || ny >= a || s[ny][nx] != 0) {
+			dir = (dir + 1) % 4;
+			dfs(y, x, dir, count);
+		} else
+			dfs(ny, nx, dir, count + 1);
+	}
 //	public static class Pair<Y, X> {
 //		Y y;
 //		X x;
@@ -67,7 +66,7 @@ public class SWEA1954 {
 //			this.y = y;
 //			this.x = x;
 //		}
-//	}
+//	}	
 //	static int[][] bfs(int n) {
 //		int count = 1;
 //		int[][] snail = new int[n][n];
