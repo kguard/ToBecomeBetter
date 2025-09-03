@@ -1,6 +1,5 @@
 package com.kguard.tobecomebetter.baekjoon.java;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 // 실버 3 2xn 타일링
