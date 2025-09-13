@@ -3,6 +3,7 @@ package com.kguard.tobecomebetter.baekjoon.kotlin
 import kotlin.math.max
 
 // 골드 4 연구소
+// 완전 탐색, BFS, 조합
 fun main() {
     val (n, m) = readln().split(" ").map { it.toInt() }
     val map = MutableList(n) { MutableList(m) { 0 } }
