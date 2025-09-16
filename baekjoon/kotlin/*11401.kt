@@ -7,6 +7,7 @@ package com.kguard.tobecomebetter.baekjoon
 // -> a mod p = (a의 p승) mod p 가 성립
 // a/x 를 a * (x의 -1승) 으로 표현 가능 -> 역원
 // a 가 p로 나누어 떨어지지 않을 떄 , (a의 p승) mod p = a mod p 에서 양변 a로 나누면 (a의 p-1승) mod p = 1 mod p 한번더 a로 나누면 (a의 p-2승) mod p = (a의 -1)승 mod p -> 페르마 소정리 사용
+/*
 fun main() {
     val (n, k) = readln().split(" ").map { it.toLong() }
     val p: Long = 1000000007
@@ -25,4 +26,41 @@ private fun mul(a: Long, b: Long, c: Long): Long {
 // 11050에서 가져온 팩토리얼 함수 -> 재귀 함수 // 전체 모듈화 계산
 private fun factorialP(n: Long, mod: Long): Long {
     return if (n <= 1) 1L else n * factorialP(n - 1, mod) % mod
+}
+*/
+
+fun main() {
+    val (n, k) = readln().split(" ").map { it.toInt() }
+    val p: Long = 1000000007
+    val fact = MutableList(40000001) { 0L }
+    fact[0] = 1
+    for (i in 1..4000000)
+        fact[i] = (fact[i - 1] * i) % p
+
+    val up = fact[n]
+    val down = (fact[k] * fact[n - k]) % p
+
+    /* BigInteger로 푸는 방법
+    val upBig = up.toBigInteger()
+    val downBig = down.toBigInteger().modInverse(p.toBigInteger())
+    val result = upBig.multiply(downBig).mod(p.toBigInteger())
+    println(result)
+    */
+    fun pow(base: Long, exp: Long): Long {
+        if (exp == 0L)
+            return 1L
+        else if (exp == 1L)
+            return base % p
+
+        val half = pow(base, exp / 2)
+        return if (exp % 2 == 0L) {
+            (half * half) % p
+        } else
+            (((half * half) % p) * base) % p
+
+    }
+
+    val inverseDown = pow(down, p-2)
+    val result = (up * inverseDown) % p
+    println(result)
 }
