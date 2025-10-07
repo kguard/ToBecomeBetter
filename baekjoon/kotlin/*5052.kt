@@ -35,13 +35,13 @@ private class Trie {
     fun insert(word: String): Boolean {
         var current = root
 
-        for (char in word) {
+        for (char in word) { // 1. 집어넣기
             if (current.isEndOfWord) // 현재 위치가 접두사인 경우 -> 여태까지 단어를 따라서 내려왔는데 끝나는 경우의 수가 있으면
                 return false
 
             val index = char - '0'
 
-            var next = current.children[index]
+            var next = current.children[index] // 다음 위치
 
             if (next == null) {
                 next = Node()
@@ -51,10 +51,10 @@ private class Trie {
 
         }
 
-        if (current.isEndOfWord) // 마지막 위치로 끝나는 경우가 있는 경우
+        if (current.isEndOfWord) // 2.  마지막 위치로 끝나는 경우가 있는 경우
             return false
 
-        if (current.children.any { it != null }) // 마지막 위치인데 자식 노드가 존재하면 현재의 word가 다른 문자의 접두사가 되어버림
+        if (current.children.any { it != null }) // 3.  마지막 위치인데 자식 노드가 존재하면 현재의 word가 다른 문자의 접두사가 되어버림
             return false
 
         current.isEndOfWord = true // 마지막 위치에 끝난다는 것을 표시
