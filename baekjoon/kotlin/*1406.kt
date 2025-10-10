@@ -14,6 +14,37 @@ import java.util.LinkedList
 // ListIterator 는 커서처럼 움직이며 previous()로 앞으로 움직이고, next()로 뒤로 이동하며 has~~()로 확인도 가능
 // MutableListIterator 는 remove()와 add() 가능
 // 반복자는 컬렉션의 기본 구조를 노출하지 않고도 요소에 순차적으로 액세스할 수 있는 객체입니다. 반복자는 컬렉션의 모든 요소를 하나씩 처리해야 할 때 유용합니다. 예를 들어 값을 인쇄하거나 비슷한 업데이트를 합니다.
+
+// 25.10.10 다시 풀기
+fun main() {
+    val list = LinkedList<String>()
+    val start = readln().forEach { list.add(it.toString()) }
+    val cursor = list.listIterator(list.size)
+    val n = readln().toInt()
+    repeat(n) {
+        val r = readln().split(" ")
+        when (r[0]) {
+            "L" -> {
+                if (cursor.hasPrevious()) cursor.previous()
+            }
+
+            "D" -> {
+                if (cursor.hasNext()) cursor.next()
+            }
+
+            "B" -> {
+                if (cursor.hasPrevious()) {
+                    cursor.previous()
+                    cursor.remove()
+                }
+            }
+
+            "P" -> {cursor.add(r[1])}
+        }
+    }
+    println(list.joinToString(""))
+}
+/*
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val bw = BufferedWriter(OutputStreamWriter(System.out))
@@ -50,4 +81,4 @@ fun main() {
     bw.write(list.joinToString(""))
     bw.flush()
     bw.close()
-}
+}*/
