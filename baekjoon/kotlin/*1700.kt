@@ -32,7 +32,7 @@ fun main() {
 
 // 미래를 보고 가장 늦게 사용될 플러그를 뽑는 것이 최소한의 플러그를 뽑을 수 있는 수가 됨
 // Set을 이용해서 콘센트 취급
-// 최적 페이지 교체 알고리즘 
+// 최적 페이지 교체 알고리즘
 fun main() {
     val (n, m) = readln().split(" ").map { it.toInt() }
     val list = readln().split(" ")
