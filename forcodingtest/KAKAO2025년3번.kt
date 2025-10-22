@@ -1,8 +1,9 @@
+/*
 package com.kguard.tobecomebetter.forcodingtest
 
-class Solution {
 
-    fun solution(board: Array<IntArray>, commands: Array<IntArray>): Array<IntArray> {
+
+   private fun solution(board: Array<IntArray>, commands: Array<IntArray>): Array<IntArray> {
         val n = board.size
         val m = board[0].size
         var currentBoard = Array(n) { r -> board[r].clone() }
@@ -89,4 +90,4 @@ class Solution {
     }
 
 
-}
+*/

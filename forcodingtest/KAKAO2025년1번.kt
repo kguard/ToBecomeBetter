@@ -1,7 +1,8 @@
+/*
 package com.kguard.tobecomebetter.forcodingtest
 
-class Solution {
-    fun solution(message: String, spoiler_ranges: Array<IntArray>): Int {
+
+   private fun solution(message: String, spoiler_ranges: Array<IntArray>): Int {
         // 1. 스포일러 맵 생성
         val spoilerMap = BooleanArray(message.length)
         for (range in spoiler_ranges) {
@@ -68,5 +69,6 @@ class Solution {
 
         return importantWordCount
     }
-}
 
+
+*/

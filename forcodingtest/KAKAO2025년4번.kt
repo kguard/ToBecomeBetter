@@ -1,8 +1,9 @@
+/*
 import java.util.ArrayDeque
 import kotlin.math.max
 
-class Solution {
-    fun solution(n: Int, infection: Int, edges: Array<IntArray>, k: Int): Int {
+
+  private  fun solution(n: Int, infection: Int, edges: Array<IntArray>, k: Int): Int {
         // 파이프 연결 정보를 저장할 인접 리스트
         val adj = Array(4) { Array(n + 1) { mutableListOf<Int>() } }
         for (edge in edges) {
@@ -65,5 +66,6 @@ class Solution {
 
         return maxInfectedCount
     }
-}
 
+
+*/

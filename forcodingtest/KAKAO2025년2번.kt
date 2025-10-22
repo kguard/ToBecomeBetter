@@ -1,7 +1,8 @@
+/*
 package com.kguard.tobecomebetter.forcodingtest
 
-class KAKAO2025년2번 {
-    fun solution(signals: Array<IntArray>): Int {
+
+   private fun solution(signals: Array<IntArray>): Int {
         if (signals.isEmpty()) {
             return -1
         }
@@ -45,16 +46,21 @@ class KAKAO2025년2번 {
         return -1
     }
 
-    /** 두 수의 최대공약수(GCD)를 구하는 함수 */
+    */
+/** 두 수의 최대공약수(GCD)를 구하는 함수 *//*
+
     private fun gcd(a: Int, b: Int): Int {
         return if (b == 0) a else gcd(b, a % b)
     }
 
-    /** 두 수의 최소공배수(LCM)를 구하는 함수 (오버플로우 방지) */
+    */
+/** 두 수의 최소공배수(LCM)를 구하는 함수 (오버플로우 방지) *//*
+
     private fun lcm(a: Int, b: Int): Int {
         if (a == 0 || b == 0) return 0
         // (a * b)가 Int 범위를 넘을 수 있으므로, 나눗셈을 먼저 수행합니다.
         return (a / gcd(a, b)) * b
     }
-}
 
+
+*/
