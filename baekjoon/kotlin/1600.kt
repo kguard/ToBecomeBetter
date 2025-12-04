@@ -1,7 +1,8 @@
 package com.kguard.tobecomebetter.baekjoon.kotlin
 
 import kotlin.math.min
-
+// 골드 3 말이 되고픈 원숭이
+// 3차원 배열을 이용한 bfs
 fun main() {
     val k = readln().toInt()
     val (w, h) = readln().split(" ").map { it.toInt() }
