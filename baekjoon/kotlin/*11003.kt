@@ -11,7 +11,7 @@ import java.util.StringTokenizer
 // 결국 덱을 사용하는 문제였지만, 안에 로직을 잘 정하는 부분이 중요했음
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    val bw = BufferedWriter(OutputStreamWriter(System.out))
+    val bw = BufferedWriter(OutputStreamWriter(System.out)) 
     val (n, l) = br.readLine().split(" ").map { it.toInt() }
     val st = StringTokenizer(br.readLine())
     val d = IntArray(n)
