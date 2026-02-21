@@ -1,3 +1,4 @@
+package com.kguard.tobecomebetter.baekjoon.kotlin
 /*
  골드 5 레벨 햄버거
  분할정복(재귀)로 문제를 해결하는 방법
