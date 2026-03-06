@@ -12,7 +12,7 @@ fun main() {
     val t = readln().toInt()
     val dp = LongArray(10001) { 0 }
     dp[0] = 1
-    // 5의 기준
+    // 6의 기준
     for (i in 1 .. 10000) // 1+1+1+1+1+1
         dp[i] += dp[i - 1]
     for (i in 2 .. 10000) // 1+1+1+1+2, 1+1+2+2, 2+2+2
