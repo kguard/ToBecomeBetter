@@ -7,15 +7,17 @@
     dp[i] += dp[i-a] 가 중요
  */
 
+
 fun main() {
     val t = readln().toInt()
     val dp = LongArray(10001) { 0 }
     dp[0] = 1
-    for (i in 1 .. 10000)
+    // 5의 기준
+    for (i in 1 .. 10000) // 1+1+1+1+1+1
         dp[i] += dp[i - 1]
-    for (i in 2 .. 10000)
+    for (i in 2 .. 10000) // 1+1+1+1+2, 1+1+2+2, 2+2+2
         dp[i] += dp[i - 2]
-    for (i in 3 .. 10000)
+    for (i in 3 .. 10000) // 1+1+1+3, 1+2+3, 3+3
         dp[i] += dp[i - 3]
     repeat(t) {
         val n = readln().toInt()
