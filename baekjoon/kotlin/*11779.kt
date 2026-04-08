@@ -2,9 +2,11 @@ package com.kguard.tobecomebetter.baekjoon
 
 import java.util.PriorityQueue
 
+
 // 골드 3 최소비용 구하기 2
 // 그래프 이론, 데이크스트라(다익크스트라), 최단 경로
 // 13913번의 역추적을 사용하고, 1504번의 다익스트라를 이용하여서 문제 해결
+/*
 fun main() {
     val n = readln().toInt()
     val m = readln().toInt()
@@ -49,4 +51,47 @@ fun main() {
     }
     println(dijkstra(s, e))
     move(s,e)
+}*/
+fun main() {
+    val n = readln().toInt()
+    val m = readln().toInt()
+    val map = MutableList(n + 1) { mutableListOf<Pair<Int, Int>>() }
+    val prev = IntArray(n+1){0}
+    repeat(m) {
+        val (a, b, c) = readln().split(" ").map { it.toInt() }
+        map[a].add(b to c)
+    }
+    val (s, e) = readln().split(" ").map { it.toInt() }
+    val visited = IntArray(n + 1) { Int.MAX_VALUE }
+    val queue = PriorityQueue<Pair<Int, Int>> { a, b -> a.second - b.second }
+    queue.add(s to 0)
+    visited[s] = 0
+    while (queue.isNotEmpty()) {
+        val poll = queue.poll()
+
+        if (poll.second > visited[poll.first])
+            continue
+
+        for (i in map[poll.first]) {
+            if(visited[i.first] > visited[poll.first] + i.second) {
+                visited[i.first] = visited[poll.first] + i.second
+                queue.add(i.first to visited[i.first])
+                prev[i.first] = poll.first
+            }
+        }
+    }
+    var count = 1
+    val path = mutableListOf<Int>()
+    var last = e
+    while(last != s){
+        path.add(last)
+        last = prev[last]
+        count++
+    }
+    path.add(s)
+
+    println(visited[e])
+    println(count)
+    println(path.reversed().joinToString(" "))
+
 }
