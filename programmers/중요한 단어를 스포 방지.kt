@@ -13,7 +13,7 @@ class 중요한_단어를_스포_방지 {
             }
         }
         if (start < message.length) // 마지막 단어 추가
-            words.add(Triple(message.slice(start until message.length), start, message.length))
+            words.add(Triple(message.slice(start until message.length), start, message.length-1))
 
 
         // 2. 전체 단어를 돌면서 스포일러 단어인지 아닌지 판단
