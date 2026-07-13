@@ -1,6 +1,8 @@
+package com.kguard.tobecomebetter.programmers
+
 // 유클리드 호제법을 사용
 // 나눗셈과 나머지를 이용해서 문제를 푸는 법 -> 주기를 사용
-class Solution {
+class YSolution {
     fun solution(signals: Array<IntArray>): Int {
         val sums = signals.map { it.sum() }
         val yellows = signals.map { (start, end, _) ->

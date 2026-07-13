@@ -1,3 +1,5 @@
+package com.kguard.tobecomebetter.programmers
+
 // DFS, BFS 문제
 // DFS로 구현
 // 정사각형의 판을 하나씩 돌면서 찾으려는 숫자의 x,y좌표를 모음 (dfs로 탐색)
@@ -5,7 +7,7 @@
 // 찾은 좌표들을 가지고, 딱 맞는 2차원 배열을 생성
 // 2차원 배열 들의 블록을 하나씩 돌려보며 맞는 구멍이 있는지 확인
 // 있으면 넓이를 더하고, 구멍을 매우고, 다음 블록으로 넘어감
-class Solution {
+class PSolution {
 
     private fun rotate(board: MutableList<MutableList<Int>>): MutableList<MutableList<Int>> { // 2차원 배열을 90도로 돌리는 함수
         val rotated = MutableList(board[0].size) { MutableList(board.size) { 0 } }
