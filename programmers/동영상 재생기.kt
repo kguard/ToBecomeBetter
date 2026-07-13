@@ -1,6 +1,6 @@
 package com.kguard.tobecomebetter.programmers
 
-class SSolution {
+class Solution_동영상_재생기 {
     fun solution(
         video_len: String,
         pos: String,
@@ -31,7 +31,7 @@ class SSolution {
         val n = nowH * 60 + nowS
         val s = sH * 60 + sS
         val e = eH * 60 + eS
-        
+
        if(n in s..e){
            nowH = eH
            nowS = eS
